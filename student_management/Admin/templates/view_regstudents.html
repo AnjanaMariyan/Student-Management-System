@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Details of the registered students</h1>
+    <table border="2px">
+        <tr style="background-color: rgb(177, 210, 30);font-style: italic;font-size: x-large;">
+            <th>F_name</th>
+            <th>L_name</th>
+            <th>Phone</th>
+            <th>Department</th>
+            <th>Email</th>
+            <th></th>
+            
+        </tr>
+        {% for stu in data %}
+        <tr>
+            <td>{{stu.first_name}}</td>
+            <td>{{stu.last_name}}</td>
+            <td>{{stu.phone}}</td>
+            <td>{{stu.department}}</td>
+            <td>{{stu.email}}</td>
+            <td><a href="/stu_del/{{stu.id}}">Delete</a></td>
+
+            
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

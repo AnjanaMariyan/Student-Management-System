@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url('{% static "teacher.jpg" %}');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>welcome teacher</h1>
+    <a href="{% url 'teacher_complete_profile'%}">complete your profile here!!!!</a><br><br><br><br>
+    <a href="{% url 'teacher_view_profile'%}">View my profile</a><br><br><br>
+    <a href="{% url 'mystudents'%}">View my students</a><br><br><br>
+    <a href="{% url 'signout' %}">Logout</a>
+
+    
+
+</body>
+</html>

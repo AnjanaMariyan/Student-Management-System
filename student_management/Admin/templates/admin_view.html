@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url('{% static "admn.jpg" %}');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <center><h1>Welcome admin</h1></center>
+
+    <h2>Student list</h2>
+    <table border="2px">
+        <tr style="background-color: rgb(177, 210, 30);font-style: italic;font-size: x-large;">
+            <th>F_name</th>
+            <th>L_name</th>
+            <th>Phone</th>
+            <th>Department</th>
+            <th>Email</th>
+            <th></th>
+            
+        </tr>
+        {% for stu in data %}
+        <tr>
+            <td>{{stu.first_name}}</td>
+            <td>{{stu.last_name}}</td>
+            <td>{{stu.phone}}</td>
+            <td>{{stu.department}}</td>
+            <td>{{stu.email}}</td>
+            <td><a href="/stu_del/{{stu.id}}">Delete</a></td>
+
+            
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Teachers list</h2>
+    <table border="2px">
+        <tr style="background-color: rgb(177, 210, 30);font-style: italic;font-size: x-large;">
+            <th>F_name</th>
+            <th>L_name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Approved/Not</th>
+            <th></th>
+            <th></th>
+            
+        </tr>
+
+        {% for tea in data1 %}
+        <tr>
+            <td>{{tea.first_name}}</td>
+            <td>{{tea.last_name}}</td>
+            <td>{{tea.phone}}</td>
+            <td>{{tea.email}}</td>
+            <td>{{tea.is_approved}}</td>
+            
+            <td><a href="{% url 'admin_approve_teacher' teacher_id=tea.id %}">Approve</a></td>
+
+
+            <td><a href="{% url 'admin_reject_teacher' teacher_id=tea.id %}">Reject</a></td>
+           
+
+
+            
+        </tr>
+        {% endfor %}
+    </table>
+    <div>
+        <h1>Details of approved teachers</h1>
+        <table border="1px">
+            <tr style="background-color: rgb(177, 210, 30);font-style: italic;font-size: x-large;">
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>email</th>
+                <th>department</th>
+                <th>phone</th>
+                <th>Experience</th>
+                <th>salary</th>
+            </tr>
+            {% for teacher in data2 %}
+            <tr>
+                <td>{{ teacher.user_id.first_name }}</td>
+                <td>{{ teacher.user_id.last_name }}</td>
+                <td>{{ teacher.user_id.email }}</td>
+                <td>{{ teacher.user_id.department }}</td>
+                <td>{{ teacher.user_id.phone }}</td>
+                <td>{{ teacher.experience }}</td>
+                <td>{{ teacher.salary }}</td>
+            </tr > 
+            {% endfor %}
+
+        </table>
+    </div>
+
+    
+
+    <br>
+    <a href="{% url 'signout' %}">Logout</a>
+</body>
+</html>

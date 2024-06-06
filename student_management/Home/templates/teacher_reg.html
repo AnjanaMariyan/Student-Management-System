@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(63, 235, 120);
+        }
+    </style>
+</head>
+<body>
+    <center><h1>Teacher Registration </h1></center>
+    <center>
+        <form action="" method="post">
+            {% csrf_token %}
+            First Name      <input type="text"name="fname"><br><br>
+            Last Name       <input type="text"name="lname"><br><br>
+            Email           <input type="email"name="email"><br><br>
+            Phone           <input type="number"name="ph"><br><br>
+            Department      <input type="text"name="dept"><br><br>
+            UserName        <input type="text"name="uname"><br><br>
+            Password        <input type="password"name="psw"><br>
+            <br><br><br><br>
+            <input type="submit"value="Register">
+
+        </form>
+    </center>
+    
+</body>
+</html>
